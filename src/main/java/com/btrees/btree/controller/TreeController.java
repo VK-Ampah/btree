@@ -7,36 +7,35 @@ import com.btrees.btree.service.TreeService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@RestController
+//@RestController
+@Controller
 @RequestMapping("/tree")
 public class TreeController {
 
     @Autowired
     private TreeService treeService;
 
+    @GetMapping("/")
+    public String homepage() {
+        return "homepage";
+    }
+
     @GetMapping("/enter-numbers")
     public String enterNumbersPage() {
         // display a form to make a post request to /process-numbers
         // and a button to make a get request to /previous-trees
-        return "<html>" +
-                "<body>" +
-                "<form action='/tree/process-numbers' method='post'>" +
-                "<input type='text' name='numbers'>" +
-                "<button type='submit'>Submit</button>" +
-                "</form>" +
-                "<form action='/tree/previous-trees' method='get'>" +
-                "<button type='submit'>Show Previous</button>" +
-                "</form>" +
-                "</body>" +
-                "</html>";
+        return "enter-numbers";
     }
+
     @PostMapping("/process-numbers")
+    @ResponseBody
     public BinarySearchTree processNumbers(@RequestParam String numbers) throws JsonProcessingException {
         // Convert the string to a list of integers
         List<Integer> numberList = Arrays.stream(numbers.split(","))
@@ -57,6 +56,7 @@ public class TreeController {
     }
 
 
+    @ResponseBody
     @GetMapping("/previous-trees")
     public List<PreviousTree> getPreviousTrees() {
         return treeService.getAllPreviousTrees();

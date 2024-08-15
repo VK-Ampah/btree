@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Numbers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            width: 50%;
+            margin: 40px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .container button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .container button:hover {
+            background-color: #45a049;
+        }
+
+        .container .link-button {
+            background-color: #f4f4f4;
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .container .link-button:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>Enter Numbers to Create a Binary Search Tree</h1>
+</div>
+
+<div class="container">
+    <h2>Enter Numbers</h2>
+    <form action="/tree/process-numbers" method="post">
+        <input type="text" name="numbers" placeholder="Enter numbers separated by commas (e.g., 5,3,7)">
+        <button type="submit">Submit</button>
+    </form>
+    <a href="/tree/previous-trees" class="link-button">Show Previous Trees</a>
+</div>
+</body>
+</html>
