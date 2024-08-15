@@ -45,7 +45,7 @@ public class TreeController {
         // Build the binary search tree using the TreeService
         BinarySearchTree tree = treeService.buildTree(numberList);
 
-        // Convert the tree to a JSON string (assuming a method to do this exists)
+        // Convert the tree to a JSON string using the ObjectMapper
         String treeJson = new ObjectMapper().writeValueAsString(tree);
 
         // Save the tree and input numbers to the database
